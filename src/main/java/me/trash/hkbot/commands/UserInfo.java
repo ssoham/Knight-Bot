@@ -28,8 +28,10 @@ public class UserInfo extends ListenerAdapter {
                 e.setColor(Color.yellow);
                 e.setTitle(event.getMember().getEffectiveName() + "'s Information!");
                 e.setThumbnail(event.getAuthor().getAvatarUrl());
-                e.setDescription("User joined on: **" + event.getMember().getJoinDate().getDayOfMonth() + "/" + monthNum(event.getMember().getJoinDate().getMonth()) + "/" + event.getMember().getJoinDate().getYear() + "** \n\n" +
-                                 "Roles: [" + event.getMember().getRoles().size() +"] \n" + rolenames);
+                e.setDescription("User joined on: **" + event.getMember().getJoinDate().getDayOfMonth() + "/" + monthNum(event.getMember().getJoinDate().getMonth()) + "/" + event.getMember().getJoinDate().getYear() + "**                                    " +
+                                 "User created on **" + event.getMember().getUser().getCreationTime().getDayOfMonth() + "/" + monthNum(event.getMember().getUser().getCreationTime().getMonth()) + "/" + event.getMember().getUser().getCreationTime().getYear() + "**");
+                e.addField("Roles [" + event.getMember().getRoles().size() + "]", rolenames, true);
+
                 event.getChannel().sendMessage(e.build()).queue();
             }
             else if (args.length >= 2 && args[1].startsWith("<")){

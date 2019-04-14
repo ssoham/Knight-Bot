@@ -29,11 +29,11 @@ public class GvG extends ListenerAdapter {
 
                 EmbedBuilder embedBuilder = new EmbedBuilder();
                 embedBuilder.setColor(Color.yellow);
-                embedBuilder.setDescription("React with 1 for 6v6, 2 for 4v4, 3 otherwise");
+                embedBuilder.setDescription("1 for SkyWars; 2 for BedWars; 3 anything else");
                 event.getChannel().sendMessage(embedBuilder.build()).queue();
 
                 waiter.waitForEvent(GuildMessageReceivedEvent.class, e -> e.getAuthor().equals(event.getAuthor()) && e.getChannel().equals(event.getChannel()), e -> {
-
+                    event.getChannel().sendMessage("Send the following information in one message: `<eg. 6v6> <`");
                 });
 
             }

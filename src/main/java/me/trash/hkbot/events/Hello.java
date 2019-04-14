@@ -8,7 +8,7 @@ public class Hello extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split(" ");
 
         if(args[0].toLowerCase().startsWith("hello")) {
-            if(!event.getMember().getUser().isBot()) {
+            if(!event.getMember().getUser().isBot() && !event.getMessage().getContentRaw().contains("gay")) {
                 event.getChannel().sendMessage("hey").queue();
             }
         }
